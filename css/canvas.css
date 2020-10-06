@@ -1,6 +1,10 @@
 :root {
   --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   --bg-color: #f6f9fc;
+  --column-space--double: 40px;
+  --column-space: 20px;
+  --row-space: 4px;
+  --darkgray: rgb(100, 100, 100);
 }
 
 body {
@@ -10,6 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: var(--column-space) 0;
 }
 
 .canvas {
@@ -17,16 +22,53 @@ body {
   height: 600px;
   background-color: white;
   border-radius: 12px;
-  margin-top: 20px;
+  margin-bottom: var(--column-space--double);
   box-shadow: var(--shadow);
 }
 
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* range */
+.controls__range {
+  margin-bottom: var(--column-space);
+}
+.controls__range input {
+  width: 170px;
+}
+
+/* button */
+.controls__btns {
+  margin-bottom: var(--column-space);
+  color: var(--darkgray);
+}
+.controls__btn {
+  all: unset;
+  cursor: pointer;
+  background-color: white;
+  padding: 8px 0;
+  margin: 0 var(--row-space);
+  width: 80px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  text-transform: uppercase;
+}
+.controls__btn:active {
+  transform: scale(0.96);
+}
+
+/* color */
 .controls__colors {
   display: flex;
 }
-.controls__colors .controls__color {
+.controls__color {
   width: 50px;
   height: 50px;
+  margin: 0 var(--row-space);
   border-radius: 50%;
+  cursor: pointer;
   box-shadow: var(--shadow);
 }
