@@ -1,74 +1,101 @@
 :root {
-  --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  --shadow-clicked: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   --bg-color: #f6f9fc;
-  --column-space--double: 40px;
-  --column-space: 20px;
-  --row-space: 4px;
+  --column-space--double: 24px;
+  --column-space: 12px;
+  --column-space--half: 6px;
   --darkgray: rgb(100, 100, 100);
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
   background-color: var(--bg-color);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: var(--column-space) 0;
 }
 
 .canvas {
-  width: 600px;
-  height: 600px;
+  width: 92vh;
+  height: 92vh;
   background-color: white;
   border-radius: 12px;
-  margin-bottom: var(--column-space--double);
   box-shadow: var(--shadow);
 }
 
+/* controls */
 .controls {
+  top: var(--column-space--double);
+  left: var(--column-space--double);
+}
+
+.controls__left {
+  position: absolute;
+  top: var(--column-space--double);
+  left: var(--column-space--double);
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-/* range */
-.controls__range {
-  margin-bottom: var(--column-space);
-}
-.controls__range input {
-  width: 170px;
-}
-
-/* button */
-.controls__btns {
-  margin-bottom: var(--column-space);
-  color: var(--darkgray);
-}
-.controls__btn {
-  all: unset;
-  cursor: pointer;
-  background-color: white;
-  padding: 8px 0;
-  margin: 0 var(--row-space);
-  width: 80px;
-  text-align: center;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  text-transform: uppercase;
-}
-.controls__btn:active {
-  transform: scale(0.96);
 }
 
 /* color */
 .controls__colors {
   display: flex;
+  flex-direction: column;
 }
 .controls__color {
-  width: 50px;
-  height: 50px;
-  margin: 0 var(--row-space);
+  width: 24px;
+  height: 24px;
+  margin-bottom: var(--column-space--half);
   border-radius: 50%;
-  cursor: pointer;
   box-shadow: var(--shadow);
+  cursor: pointer;
+}
+.controls__color:active {
+  transform: scale(0.96);
+  box-shadow: var(--shadow-clicked);
+}
+
+/* range */
+.controls__range {
+  width: 0;
+  transform: rotateZ(-90deg);
+  margin-top: 132px;
+}
+
+/* button */
+.controls__btns {
+  position: absolute;
+  top: var(--column-space--double);
+  right: var(--column-space--double);
+  display: flex;
+  flex-direction: column;
+  color: var(--darkgray);
+}
+.controls__btn {
+  all: unset;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-bottom: var(--column-space--half);
+  border-radius: 16px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.controls__btn:active {
+  transform: scale(0.96);
+  box-shadow: var(--shadow-clicked);
 }
