@@ -7,7 +7,7 @@ const canvas = document.querySelector("#jsCanvas"),
 canvas.width = 92 * vh;
 canvas.height = 92 * vh;
 
-ctx.lineWidth = 1;
+ctx.lineWidth = 3;
 ctx.strokeStyle = "#2c2c2c";
 
 let painting = false;
