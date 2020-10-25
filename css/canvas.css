@@ -31,6 +31,9 @@ body {
   border-radius: 12px;
   box-shadow: var(--shadow);
 }
+.canvas {
+  cursor: url(brush.png) 5 20, auto;
+}
 
 /* controls */
 .controls {
