@@ -9,6 +9,9 @@ const canvas = document.querySelector("#jsCanvas"),
 canvas.width = 92 * vh;
 canvas.height = 92 * vh;
 
+ctx.fillStyle = "#ffffff";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 ctx.lineWidth = 3;
 ctx.strokeStyle = "#2c2c2c";
 ctx.fillStyle = "#2c2c2c";
@@ -40,10 +43,12 @@ function handleColorClick(event) {
   const color = event.target.style.backgroundColor;
   ctx.strokeStyle = color;
   ctx.fillStyle = color;
-  if (color != "rgb(255, 255, 255)") {
-    icon.style.color = color;
-  } else {
+  if (color === "rgb(255, 255, 255)") {
+    icon.style.color = "rgb(180, 180, 180)";
+  } else if (color === "rgb(44, 44, 44)") {
     icon.style.color = "rgb(100, 100, 100)";
+  } else {
+    icon.style.color = color;
   }
 }
 
