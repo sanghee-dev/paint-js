@@ -4,7 +4,8 @@ const canvas = document.querySelector("#jsCanvas"),
   colors = Array.from(document.querySelectorAll(".jsColor")),
   range = document.querySelector("#jsRange"),
   mode = document.querySelector("#jsMode"),
-  icon = document.querySelector("#jsMode i");
+  icon = document.querySelector("#jsMode i"),
+  save = document.querySelector("#jsSave");
 
 canvas.width = 92 * vh;
 canvas.height = 92 * vh;
@@ -77,6 +78,14 @@ function handleContextMenu(event) {
   event.preventDefault();
 }
 
+function handleSaveClick() {
+  const image = canvas.toDataURL();
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "image";
+  link.click();
+}
+
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
@@ -92,6 +101,10 @@ if (range) {
 
 if (mode) {
   mode.addEventListener("click", handleModeClick);
+}
+
+if (save) {
+  save.addEventListener("click", handleSaveClick);
 }
 
 function init() {
